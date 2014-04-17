@@ -16,12 +16,12 @@
  *
  * =========================================================================
  */
-#include <stack.h>
+#include "stack.h"
 
 template<typename T>
 Stack<T>::Stack()
 {
-    int stop = -1;
+    stop = -1;
     s = new T[STACKSIZE];
 }
 
@@ -34,13 +34,14 @@ Stack<T>::~Stack()
 template<typename T>
 int Stack<T>::push(const T &node)
 {
-    if(top == STACKSIZE -1)
+    if(stop == STACKSIZE -1)
     {
         cout<<"The stack is full!"<<endl;
         return -1;
     }
     stop++;
     s[stop] = node;
+
   //  cout<<s[top]->item<<endl;
     return 0;
 }
@@ -53,20 +54,19 @@ int Stack<T>::pop()
         cout<<"The stack is empty!"<<endl;
         return -1;
     }
-    delete s[stop];
     stop--;
     return 0;
 }
 
 template<typename T>
-T* Stack<T>::top()
+T Stack<T>::top()
 {
     if(isempty())
     {
         cout<<"The stack is empty!"<<endl;
-        return NULL;
+        return (T)0;
     }
-    T *node = s[stop];
+    T node = s[stop];
     return node;
 }
 

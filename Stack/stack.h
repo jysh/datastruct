@@ -16,6 +16,8 @@
  *
  * =========================================================================
  */
+#ifndef STACK_H
+#define STACK_H
 #include <iostream>
 
 using namespace std;
@@ -28,9 +30,10 @@ class Stack {
         ~Stack();
         int push(const T &node);
         int pop();
-        T* top();
+        T top();
         bool isempty();
     private:
         T* s;
         int stop;
 };
+#endif

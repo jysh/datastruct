@@ -16,8 +16,9 @@
  *
  * =========================================================================
  */
-#include <stack.h>
 #include <stdlib.h>
+#include "stack.h"
+#include "stack.cpp"
 
 struct node{
     int item;
@@ -25,9 +26,11 @@ struct node{
 
 int main()
 {
-    Stack<node> s;
-    node *n = new node();
-    n->item = 1;
-    s.push(*n);
+    Stack<node*> s;
+    struct node *n = new node();
+    n->item = 4;
+    s.push(n);
+    struct node *n1 = s.top();
+    cout<<n1->item<<endl;
     return 0;
 }
