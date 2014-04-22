@@ -39,10 +39,27 @@ void insertsort(int *a, int len)
     }
 }
 
+void insertsort2(int *a, int len)
+{
+    int i, j;
+    int temp;
+    for(i=1; i<len; i++)
+    {
+        for(j=i-1; j>=0; j--)
+        {
+            if(a[j] < a[j+1])
+                break;
+            temp = a[j];
+            a[j] = a[j+1];
+            a[j+1] = temp;
+        }
+    }
+}
+
 int main()
 {
-    int a[] = {9,8,7,6,5,4,3,2,1,10};
-    insertsort(a, 10);
+    int a[] = {9,8,7,6,5,4,3,2,10,1};
+    insertsort2(a, 10);
     int i;
     for(i=0; i<10; i++)
     {
